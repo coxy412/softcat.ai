@@ -29,6 +29,7 @@ const tools = defineCollection({
     title: z.string(),
     description: z.string(),
     url: z.string().optional(),
+    labUrl: z.string().optional(),
     status: z.enum(['active', 'experimental', 'archived']).default('experimental'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

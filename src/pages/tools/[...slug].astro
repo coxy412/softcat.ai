@@ -22,4 +22,16 @@ const { Content } = await render(entry);
   backLabel="Tools & Experiments"
 >
   <Content />
+
+  <div class="mt-10 pt-6 border-t border-surface-light">
+    {entry.data.labUrl ? (
+      <a href={entry.data.labUrl} class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neon-green/10 border border-neon-green/30 font-mono text-sm text-neon-green hover:bg-neon-green/20 transition-all">
+        Try it in the lab &rarr;
+      </a>
+    ) : (
+      <p class="font-mono text-sm text-text-muted">
+        No lab tool for this one yet. <a href="/lab" class="text-neon-cyan hover:underline">Browse the lab</a> for interactive tools.
+      </p>
+    )}
+  </div>
 </PostLayout>
