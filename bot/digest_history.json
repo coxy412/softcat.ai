@@ -1,0 +1,40 @@
+{
+  "digests": [
+    {
+      "date": "2026-02-23",
+      "file": "2026-02-23-ai-digest.md",
+      "links": [
+        "https://www.marktechpost.com/2026/02/22/taalas-is-replacing-programmable-gpus-with-hardwired-ai-chips-to-achieve-17000-tokens-per-second-for-ubiquitous-inference/",
+        "https://www.marktechpost.com/2026/02/22/vectifyai-launches-mafin-2-5-and-pageindex-achieving-98-7-financial-rag-accuracy-with-a-new-open-source-vectorless-tree-indexing/",
+        "https://www.marktechpost.com/2026/02/22/a-coding-guide-to-instrumenting-tracing-and-evaluating-llm-applications-using-trulens-and-openai-models/",
+        "https://www.marktechpost.com/2026/02/22/forget-keyword-imitation-bytedance-ai-maps-molecular-bonds-in-ai-reasoning-to-stabilize-long-chain-of-thought-performance-and-reinforcement-learning-rl-training/",
+        "https://www.marktechpost.com/2026/02/21/a-new-google-ai-research-proposes-deep-thinking-ratio-to-improve-llm-accuracy-while-cutting-total-inference-costs-by-half/",
+        "https://www.marktechpost.com/2026/02/21/how-to-design-an-agentic-workflow-for-tool-driven-route-optimization-with-deterministic-computation-and-structured-outputs/",
+        "https://www.marktechpost.com/2026/02/21/is-there-a-community-edition-of-palantir-meet-openplanter-an-open-source-recursive-ai-agent-for-your-micro-surveillance-use-cases/",
+        "https://www.marktechpost.com/2026/02/20/a-coding-guide-to-high-quality-image-generation-control-and-editing-using-huggingface-diffusers/",
+        "https://www.marktechpost.com/2026/02/20/how-to-design-a-swiss-army-knife-research-agent-with-tool-using-ai-web-search-pdf-analysis-vision-and-automated-reporting/",
+        "https://www.marktechpost.com/2026/02/20/nvidia-releases-dreamdojo-an-open-source-robot-world-model-trained-on-44711-hours-of-real-world-human-video-data/",
+        "https://techcrunch.com/2026/02/23/defense-secretary-summons-anthropics-amodei-over-military-use-of-claude/",
+        "https://techcrunch.com/2026/02/22/all-the-important-news-from-the-ongoing-india-ai-summit/",
+        "https://techcrunch.com/2026/02/22/6-days-left-to-lock-in-the-lowest-techcrunch-disrupt-2026-rates/",
+        "https://techcrunch.com/2026/02/21/sam-altman-would-like-remind-you-that-humans-use-a-lot-of-energy-too/",
+        "https://techcrunch.com/2026/02/21/microsofts-new-gaming-ceo-vows-not-to-flood-the-ecosystem-with-endless-ai-slop/",
+        "https://techcrunch.com/2026/02/21/google-vp-warns-that-two-types-of-ai-startups-may-not-survive/",
+        "https://techcrunch.com/2026/02/21/openai-debated-calling-police-about-suspected-canadian-shooters-chats/",
+        "https://techcrunch.com/2026/02/21/7-days-until-ticket-prices-rise-for-techcrunch-disrupt-2026/",
+        "https://techcrunch.com/2026/02/20/indias-sarvam-launches-indus-ai-chat-app-as-competition-heats-up/",
+        "https://techcrunch.com/video/the-creator-economys-ad-revenue-problem-and-indias-ai-ambitions/",
+        "https://techcrunch.com/podcast/why-creators-are-ditching-ad-revenue-for-chocolate-bars-and-fintech-acquisitions/",
+        "https://techcrunch.com/2026/02/20/anthropic-funded-group-backs-candidate-attacked-by-rival-ai-super-pac/",
+        "https://techcrunch.com/2026/02/20/inscope-nabs-14-5m-to-solve-the-pain-of-financial-reporting/",
+        "https://techcrunch.com/2026/02/20/great-news-for-xai-grok-is-now-pretty-good-at-answering-questions-about-baldurs-gate/",
+        "https://techcrunch.com/2026/02/20/toy-story-5-takes-aim-at-creepy-ai-toys-im-always-listening/",
+        "https://buttondown.com/ainews/archive/ainews-we-have-moved-please-help-us-move/",
+        "https://buttondown.com/ainews/archive/ainews-grok-3-3-mini-now-api-available/",
+        "https://buttondown.com/ainews/archive/ainews-gemini-25-flash-completes-the-total/",
+        "https://buttondown.com/ainews/archive/ainews-openai-o3-o4-mini-and-codex-cli/",
+        "https://buttondown.com/ainews/archive/ainews-sota-video-gen-veo-2-and-kling-2-are-ga/"
+      ]
+    }
+  ]
+}
