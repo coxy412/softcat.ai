@@ -16,7 +16,8 @@ const navLinks = [
       <span class="font-mono text-neon-green glow-green text-sm">.ai</span>
     </a>
 
-    <div class="flex items-center gap-6">
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-6">
       {navLinks.map((link) => (
         <a
           href={link.href}
@@ -27,5 +28,43 @@ const navLinks = [
         </a>
       ))}
     </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden font-mono text-text-muted hover:text-neon-cyan transition-colors p-1"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span id="menu-icon" class="text-lg">&#9776;</span>
+    </button>
   </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-surface-light/50">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex flex-col gap-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          title={link.title}
+          class="font-mono text-sm text-text-muted hover:text-neon-cyan transition-colors py-1"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const icon = document.getElementById('menu-icon')!;
+
+  toggle.addEventListener('click', () => {
+    const open = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    icon.innerHTML = open ? '&#9776;' : '&#10005;';
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+</script>
