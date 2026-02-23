@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import modelsData from '../../data/models.json';
 
 interface ModelData {
   name: string;
@@ -17,36 +18,7 @@ interface ModelData {
   description: string;
 }
 
-const allModels: ModelData[] = [
-  // Anthropic
-  { name: 'Claude Opus 4.6', provider: 'Anthropic', family: 'Claude 4', released: '2026-02', contextK: 200, inputPrice: 5, outputPrice: 25, openSource: false, reasoning: true, multimodal: true, coding: 97, reasoning_score: 98, speed: 40, description: 'Most capable Claude model. Excels at complex reasoning, agentic tasks, and extended coding.' },
-  { name: 'Claude Sonnet 4.5', provider: 'Anthropic', family: 'Claude 4', released: '2025-10', contextK: 200, inputPrice: 3, outputPrice: 15, openSource: false, reasoning: true, multimodal: true, coding: 92, reasoning_score: 93, speed: 70, description: 'Near-Opus intelligence at Sonnet pricing. Strong at coding, analysis, and general tasks.' },
-  { name: 'Claude Haiku 4.5', provider: 'Anthropic', family: 'Claude 4', released: '2025-10', contextK: 200, inputPrice: 1, outputPrice: 5, openSource: false, reasoning: false, multimodal: true, coding: 78, reasoning_score: 75, speed: 95, description: 'Fastest Claude model. Great for high-volume, latency-sensitive applications.' },
-  // OpenAI
-  { name: 'GPT-5', provider: 'OpenAI', family: 'GPT-5', released: '2025-11', contextK: 400, inputPrice: 1.25, outputPrice: 10, openSource: false, reasoning: true, multimodal: true, coding: 93, reasoning_score: 94, speed: 55, description: 'Flagship OpenAI model. 400K context, strong across all tasks.' },
-  { name: 'GPT-5 Mini', provider: 'OpenAI', family: 'GPT-5', released: '2025-11', contextK: 400, inputPrice: 0.25, outputPrice: 2, openSource: false, reasoning: false, multimodal: true, coding: 82, reasoning_score: 80, speed: 80, description: 'Budget GPT-5 class model with large context window.' },
-  { name: 'GPT-5 Nano', provider: 'OpenAI', family: 'GPT-5', released: '2025-08', contextK: 400, inputPrice: 0.05, outputPrice: 0.4, openSource: false, reasoning: false, multimodal: false, coding: 68, reasoning_score: 65, speed: 96, description: 'Cheapest frontier model. On-device capable, great for high-volume simple tasks.' },
-  { name: 'GPT-4.1', provider: 'OpenAI', family: 'GPT-4', released: '2025-04', contextK: 1000, inputPrice: 2, outputPrice: 8, openSource: false, reasoning: false, multimodal: true, coding: 88, reasoning_score: 86, speed: 72, description: 'Million-token context, strong at coding and instruction following.' },
-  { name: 'GPT-4o', provider: 'OpenAI', family: 'GPT-4', released: '2024-05', contextK: 128, inputPrice: 2.5, outputPrice: 10, openSource: false, reasoning: false, multimodal: true, coding: 85, reasoning_score: 85, speed: 75, description: 'Multimodal workhorse from OpenAI. Good all-rounder for text, vision, and audio.' },
-  { name: 'o3', provider: 'OpenAI', family: 'o-series', released: '2025-04', contextK: 200, inputPrice: 2, outputPrice: 8, openSource: false, reasoning: true, multimodal: false, coding: 90, reasoning_score: 96, speed: 25, description: 'Deep reasoning model. Excels at maths, science, coding, and logic problems.' },
-  { name: 'o3-mini', provider: 'OpenAI', family: 'o-series', released: '2025-01', contextK: 200, inputPrice: 1.1, outputPrice: 4.4, openSource: false, reasoning: true, multimodal: false, coding: 82, reasoning_score: 88, speed: 55, description: 'Budget reasoning model. Good value for tasks that need structured thinking.' },
-  // Google
-  { name: 'Gemini 2.5 Pro', provider: 'Google', family: 'Gemini 2.5', released: '2025-03', contextK: 1000, inputPrice: 1.25, outputPrice: 10, openSource: false, reasoning: true, multimodal: true, coding: 90, reasoning_score: 90, speed: 55, description: 'Google\'s thinking model. Strong at coding, analysis, huge context window.' },
-  { name: 'Gemini 2.5 Flash', provider: 'Google', family: 'Gemini 2.5', released: '2025-04', contextK: 1000, inputPrice: 0.15, outputPrice: 0.6, openSource: false, reasoning: true, multimodal: true, coding: 82, reasoning_score: 82, speed: 88, description: 'Cheap thinking model with 1M context. Excellent value for reasoning tasks.' },
-  { name: 'Gemini 2.0 Flash', provider: 'Google', family: 'Gemini 2', released: '2025-02', contextK: 1000, inputPrice: 0.1, outputPrice: 0.4, openSource: false, reasoning: false, multimodal: true, coding: 78, reasoning_score: 75, speed: 92, description: 'Rock-bottom pricing with 1M context. Fast multimodal processing.' },
-  // Meta
-  { name: 'Llama 4 Scout', provider: 'Meta', family: 'Llama 4', released: '2025-04', contextK: 10000, inputPrice: 0, outputPrice: 0, openSource: true, reasoning: false, multimodal: true, coding: 82, reasoning_score: 80, speed: 45, description: '10M token context. MoE architecture, self-hostable, multimodal.' },
-  { name: 'Llama 4 Maverick', provider: 'Meta', family: 'Llama 4', released: '2025-04', contextK: 1000, inputPrice: 0, outputPrice: 0, openSource: true, reasoning: false, multimodal: true, coding: 85, reasoning_score: 83, speed: 55, description: 'Strong open-source contender. 1M context, multimodal, competitive with proprietary.' },
-  // DeepSeek
-  { name: 'DeepSeek V3', provider: 'DeepSeek', family: 'DeepSeek', released: '2025-03', contextK: 128, inputPrice: 0.56, outputPrice: 1.68, openSource: true, reasoning: false, multimodal: false, coding: 86, reasoning_score: 82, speed: 70, description: 'Strong general-purpose model at extremely low cost. Open weights.' },
-  { name: 'DeepSeek R1', provider: 'DeepSeek', family: 'DeepSeek', released: '2025-01', contextK: 128, inputPrice: 0.56, outputPrice: 1.68, openSource: true, reasoning: true, multimodal: false, coding: 85, reasoning_score: 90, speed: 35, description: 'Open-source reasoning model. Competes with o1 at a fraction of the cost.' },
-  // Mistral
-  { name: 'Mistral Large 3', provider: 'Mistral', family: 'Mistral', released: '2025-03', contextK: 256, inputPrice: 2, outputPrice: 6, openSource: false, reasoning: false, multimodal: false, coding: 83, reasoning_score: 80, speed: 60, description: 'European flagship. Excellent multilingual, 256K context, strong at code.' },
-  { name: 'Mistral Small 3.1', provider: 'Mistral', family: 'Mistral', released: '2025-03', contextK: 128, inputPrice: 0.2, outputPrice: 0.6, openSource: false, reasoning: false, multimodal: false, coding: 72, reasoning_score: 68, speed: 90, description: 'Very cheap and fast. Punches above its weight for simple to medium tasks.' },
-  // Others
-  { name: 'Qwen 2.5 72B', provider: 'Alibaba', family: 'Qwen', released: '2024-09', contextK: 128, inputPrice: 0, outputPrice: 0, openSource: true, reasoning: false, multimodal: false, coding: 78, reasoning_score: 75, speed: 60, description: 'Top-tier Chinese open-source model. Strong at coding and multilingual tasks.' },
-  { name: 'Kimi k1.5', provider: 'Moonshot AI', family: 'Kimi', released: '2025-01', contextK: 128, inputPrice: 0.4, outputPrice: 1.6, openSource: false, reasoning: true, multimodal: false, coding: 76, reasoning_score: 82, speed: 50, description: 'Long-context reasoning model. Competitive pricing and strong performance.' },
-];
+const allModels: ModelData[] = modelsData as ModelData[];
 
 type ViewMode = 'cards' | 'timeline' | 'pricing';
 type SortKey = 'name' | 'released' | 'inputPrice' | 'coding' | 'reasoning_score' | 'speed';
