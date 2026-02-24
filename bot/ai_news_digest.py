@@ -21,7 +21,7 @@ from anthropic import Anthropic
 # Paths
 BOT_DIR = Path(__file__).parent
 REPO_DIR = BOT_DIR.parent
-CONTENT_DIR = REPO_DIR / "src" / "content" / "workshop-log"
+CONTENT_DIR = REPO_DIR / "src" / "content" / "news-and-updates"
 HISTORY_FILE = BOT_DIR / "digest_history.json"
 STYLE_GUIDE = REPO_DIR / "STYLE.md"
 
@@ -89,7 +89,7 @@ def generate_digest(entries: list[dict], history: dict) -> str | None:
 
     today = date.today().isoformat()
 
-    prompt = f"""You are writing a weekly AI news digest for SOFT CAT .ai, an AI workshop site. Pick the 3-5 most interesting or important stories from the feed below and write a digest post.
+    prompt = f"""You are writing a weekly AI news digest for SOFT CAT .ai. Pick the 3-5 most interesting or important stories from the feed below and write a digest post.
 
 ## House style (follow this exactly):
 {style_guide}
@@ -173,7 +173,7 @@ def save_and_push(content: str, entries: list[dict], history: dict):
 
     # Commit and push
     os.chdir(REPO_DIR)
-    subprocess.run(["git", "add", f"src/content/workshop-log/{filename}", "bot/digest_history.json"], check=True)
+    subprocess.run(["git", "add", f"src/content/news-and-updates/{filename}", "bot/digest_history.json"], check=True)
     msg = f"bot: add AI news digest ({slug_date})"
     subprocess.run(["git", "commit", "-m", msg], check=True)
     subprocess.run(["git", "push"], check=True)

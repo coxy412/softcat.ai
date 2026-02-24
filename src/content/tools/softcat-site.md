@@ -1,6 +1,6 @@
 ---
 title: "softcat.ai"
-description: "This site. A self-maintaining AI workshop powered by Astro, Tailwind, and an automated content pipeline."
+description: "This site. A self-maintaining AI site powered by Astro, Tailwind, and an automated content pipeline."
 status: active
 tags: [astro, tailwind, github-pages, meta]
 draft: false
@@ -17,6 +17,6 @@ Python bots running on a local server scan AI feeds, generate markdown via the A
 
 The repo is the site. No CMS, no database, no drag-and-drop builder.
 
-**Why we built it:** We wanted a workshop that documents itself. The less time spent on content plumbing, the more time for actual experiments.
+**Why we built it:** We wanted a site that documents itself. The less time spent on content plumbing, the more time for actual experiments.
 
 **Verdict:** Proof that a static site with a few bots can replace an entire CMS.

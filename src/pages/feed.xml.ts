@@ -3,27 +3,27 @@ import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
-  const workshop = (await getCollection('workshop-log')).filter((e) => !e.data.draft);
-  const fieldNotes = (await getCollection('field-notes')).filter((e) => !e.data.draft);
+  const news = (await getCollection('news-and-updates')).filter((e) => !e.data.draft);
+  const thoughts = (await getCollection('thoughts')).filter((e) => !e.data.draft);
 
   const items = [
-    ...workshop.map((e) => ({
+    ...news.map((e) => ({
       title: e.data.title,
       description: e.data.summary,
       pubDate: e.data.date,
-      link: `/workshop-log/${e.id}/`,
+      link: `/news-and-updates/${e.id}/`,
     })),
-    ...fieldNotes.map((e) => ({
+    ...thoughts.map((e) => ({
       title: e.data.title,
       description: e.data.summary,
       pubDate: e.data.date,
-      link: `/field-notes/${e.id}/`,
+      link: `/thoughts/${e.id}/`,
     })),
   ].sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
 
   return rss({
     title: 'SOFT CAT .ai',
-    description: 'Smart Outputs From Trained Conversational AI Technology. An AI workshop by Valori.',
+    description: 'Smart Outputs From Trained Conversational AI Technology. An AI site by Valori.',
     site: context.site!.toString(),
     items,
   });

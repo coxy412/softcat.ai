@@ -1,8 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const workshopLog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/workshop-log' }),
+const newsAndUpdates = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/news-and-updates' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -12,8 +12,8 @@ const workshopLog = defineCollection({
   }),
 });
 
-const fieldNotes = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/field-notes' }),
+const thoughts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/thoughts' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -37,7 +37,7 @@ const tools = defineCollection({
 });
 
 export const collections = {
-  'workshop-log': workshopLog,
-  'field-notes': fieldNotes,
+  'news-and-updates': newsAndUpdates,
+  'thoughts': thoughts,
   tools,
 };

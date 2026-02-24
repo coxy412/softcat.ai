@@ -89,7 +89,7 @@ def pick_and_write(entries: list[dict], history: dict) -> str | None:
     today = date.today().isoformat()
     slug_date = date.today().strftime("%Y-%m-%d")
 
-    prompt = f"""You are writing content for SOFT CAT .ai, an AI workshop site. Your job is to pick ONE interesting AI tool, library, or technique from the feed below and write a short "Tool of the Week" post.
+    prompt = f"""You are writing content for SOFT CAT .ai. Your job is to pick ONE interesting AI tool, library, or technique from the feed below and write a short "Tool of the Week" post.
 
 ## House style (follow this exactly):
 {style_guide}

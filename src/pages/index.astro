@@ -6,12 +6,12 @@ import SectionPreview from '../components/SectionPreview.astro';
 import Dispatch from '../components/Dispatch.astro';
 import { getCollection } from 'astro:content';
 
-const workshopEntries = (await getCollection('workshop-log'))
+const newsEntries = (await getCollection('news-and-updates'))
   .filter((e) => !e.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
 
-const fieldEntries = (await getCollection('field-notes'))
+const thoughtEntries = (await getCollection('thoughts'))
   .filter((e) => !e.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
@@ -27,21 +27,21 @@ const toolEntries = (await getCollection('tools'))
 
   <div class="border-t border-surface-light/30 mt-8">
     <SectionPreview
-      title="Workshop Log"
+      title="News & Updates"
       accent="green"
-      href="/workshop-log"
-      basePath="/workshop-log"
-      entries={workshopEntries}
+      href="/news-and-updates"
+      basePath="/news-and-updates"
+      entries={newsEntries}
     />
   </div>
 
   <div class="border-t border-surface-light/30">
     <SectionPreview
-      title="Field Notes"
+      title="Thoughts"
       accent="cyan"
-      href="/field-notes"
-      basePath="/field-notes"
-      entries={fieldEntries}
+      href="/thoughts"
+      basePath="/thoughts"
+      entries={thoughtEntries}
     />
   </div>
 

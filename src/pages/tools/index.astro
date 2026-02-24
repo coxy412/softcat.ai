@@ -6,12 +6,12 @@ const entries = (await getCollection('tools'))
   .filter((e) => !e.data.draft);
 ---
 
-<BaseLayout title="Tools & Experiments" description="Micro-tools, AI finds, and experiments from the workshop.">
+<BaseLayout title="Tools & Experiments" description="Micro-tools, AI finds, and experiments.">
   <div class="max-w-3xl mx-auto px-6 py-16">
     <header class="mb-12">
       <a href="/" class="font-mono text-sm text-text-muted hover:text-neon-cyan transition-colors mb-4 inline-block">&larr; home</a>
       <h1 class="font-mono text-3xl font-bold text-text-bright glow-purple">Tools & Experiments</h1>
-      <p class="text-text-muted mt-2">Micro-tools, AI finds, and experiments from the workshop.</p>
+      <p class="text-text-muted mt-2">Micro-tools, AI finds, and experiments.</p>
     </header>
 
     {entries.length === 0 ? (
